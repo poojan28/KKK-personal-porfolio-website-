@@ -1,0 +1,328 @@
+
+@font-face { 
+    font-family: aileronblack;
+     src: url('/font/Aileron-Black.otf'); 
+    } 
+$aside-background:#152029;
+$fcolor-primary:white;
+$fcolor-secondary:black;
+$fontSize-body:26px;
+$fontSize-nav:19px;
+$font-aileron:'aileronblack';
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+.body{
+    font-family: $font-aileron;
+    overflow-x: hidden;
+    
+}
+.wrapper{
+    width:100%;
+    height:100%;
+    .container{
+        display:grid;
+        grid-template-columns: 1fr 4fr;
+         @media (max-width: #{$screen-md-min}) {
+             grid-template-columns: 1fr;
+             width:100%;
+         }
+    }
+}
+//  left sidebar
+
+
+.aside{
+     background:$aside-background;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    .closebtn {
+        display:none;
+    }
+    .thumbnail-img{
+        position:fixed;
+        top:15%;
+        @media (max-width: #{$screen-md-min}) {
+            position:relative;
+            top:0;
+        }
+       
+        .img-item{
+            
+            margin: 40px;
+            width: 130px;
+            height: 130px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            text-align: center;
+            background: rgba(30, 144, 255, 0.6);
+            border-radius: 50%;
+            animation: shadow-pulse 2s infinite;
+            @keyframes shadow-pulse
+                {
+                    0% {
+                        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+                    }
+                    100% {
+                        box-shadow: 0 0 0 35px rgba(0, 0, 0, 0);
+                    }
+                }   
+        }
+    }
+    .navbar{
+        position:fixed;
+        top:45%;
+        @media (max-width: #{$screen-md-min}) {
+            position:relative;
+            top:0;
+        }
+        ul{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+            
+            li{
+                list-style-type: none;
+                padding:0 0 20px 50px;
+                align-self: flex-start;
+                .active{
+                    opacity:0.5;
+
+                }
+                a{
+                    text-decoration: none;
+                    color:$fcolor-primary;
+                    font-size: $fontSize-nav;
+                    text-transform: capitalize;
+                    font-weight:600;
+                 
+                }
+            }
+        }
+
+    }
+
+}
+@media (max-width: #{$screen-md-min}) {
+    
+    .sidenav{
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        
+         .closebtn {
+             display:initial;
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+          }
+          .cross-btn {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+          }
+          
+          .sidenav a:hover {
+            color: #f1f1f1;
+          }
+          
+
+    }
+}
+
+// end of left sidebar
+
+// start of main container
+.main-container{
+    width:100%;
+    height:100%;
+    position: relative;
+    overflow-x:hidden;
+    .m-open-sidebar{
+        display: none;
+    }
+    @media (max-width: #{$screen-md-min}) {
+        .m-open-sidebar{
+            display:initial;
+            position:absolute;
+            top:20px;
+            left:20px;
+            z-index:2;
+        }
+    }
+   
+    .main-container__define{
+            position: relative;
+            background: url(/images/bg.jpg)center center no-repeat;  
+            background-size: cover;
+           background-attachment: fixed;
+            width:100%;
+            height:100%;
+            
+            
+            &:before {
+                content: '';
+            position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: #fff;
+                opacity: 0.8;
+                z-index:0;
+            }
+        
+    }
+  
+    .flex-define{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        
+       
+    }
+    
+    .main{
+        z-index:1;
+        position:relative;
+        text-align: center;
+        height:100vh;
+      
+        .column{
+            font-size: $fontSize-body;
+            font-weight: lighter;
+        }
+        .column-1 img{
+            width:500px;
+            @media (max-width: #{$screen-md-min}) {
+                width:100%;
+            }
+        }
+        
+       
+        .column-2{
+            text-align: center;
+            width:100%;
+            overflow-x:hidden;
+           position: absolute; 
+           left:3%;
+           top:60%;
+        
+           @media (max-width: #{$screen-md-min}) {
+            width:100%;
+            left:0;
+            font-size: 23px;
+           }
+        }
+    }
+}
+// End of main container
+
+// start of identity design section
+.section{
+    padding: 0 30px;
+    .section__title{
+        font-size:$fontSize-body;
+        color:$fcolor-secondary;
+        position: relative;
+        z-index:23px;
+        padding: 0 2rem;
+
+    }
+
+}
+.grid-box{
+    padding:2rem;
+    ul{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 1rem;  
+        li{
+            border: 1px solid #E2E2E2;
+            border-radius: .5rem;
+            figure{
+            max-height:200px;
+            overflow:hidden;
+            border-radius: .5rem;
+           
+            position: relative;
+            img{
+                width:100%;
+                height:200px;
+                object-fit: cover;
+            }
+            }
+        }
+        
+    }
+}
+.footer{
+    background: url(/images/FooterBg.svg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position-x: -1px;
+    height:20rem;
+    position:relative;
+    z-index:23; 
+    @media (max-width: #{$screen-md-min}) {
+        height:20rem;
+    }
+    
+     
+    .footer__button{
+    position: absolute;
+    left:40%;
+    top:65%;
+    @media (max-width: #{$screen-md-min}) {
+        left:30%;
+    }
+    button{
+        padding:0.8em 3em;
+        border:none;
+        border-radius: 0.5rem;
+        outline:none;
+        background:#DE1F50;
+        color:white;
+        cursor: pointer;
+        &:hover{
+            opacity:0.7;
+        }
+    }
+    }
+    
+}
+
+// end of identity design section
+
