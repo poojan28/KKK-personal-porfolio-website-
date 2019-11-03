@@ -1,4 +1,4 @@
-# KKK Porfolio
+# KKK Portfolio
 # 1
 ![alt text](https://github.com/poojan28/KKK-personal-porfolio-website-/blob/master/output/kkk-output.JPG)
 
